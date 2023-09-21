@@ -77,6 +77,9 @@
     "rewind": {
       "suggested_key": {"default": "Alt+Comma"},
       "description": "rewind"
+    },
+    "voice" : {
+      "description": "activate voice"
     }
   }
 }

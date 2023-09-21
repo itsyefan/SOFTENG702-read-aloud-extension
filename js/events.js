@@ -101,6 +101,9 @@ brapi.commands.onCommand.addListener(function(command) {
     rewind()
       .catch(handleHeadlessError)
   }
+  else if (command == 'voice') {
+    console.log("here")
+  }
 })
 
 
