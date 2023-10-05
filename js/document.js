@@ -146,6 +146,7 @@ function Doc(source, onEnd) {
   this.forward = forward;
   this.rewind = rewind;
   this.seek = seek;
+  this.voice = voice;
 
   //method close
   function close() {
@@ -164,6 +165,28 @@ function Doc(source, onEnd) {
     currentIndex = await source.getCurrentIndex()
     return readCurrent()
   }
+
+  async function voice() {
+    let SpeechRecognition =  window.SpeechRecognition || window.webkitSpeechRecognition;
+ 
+    let recognition = new SpeechRecognition();
+
+    recognition.onstart = () => {
+      console.log("starting listening, speak in microphone");
+    }     
+
+    recognition.onspeechend = () => {
+      console.log("stopped listening");
+      recognition.stop();
+    }
+
+    recognition.onresult = (result) => {
+      let vocalInput = result.results[0][0].transcript;
+      console.log(vocalInput);
+    }
+
+    recognition.start()
+    }
 
   async function readCurrent(rewinded) {
     const texts = await source.getTexts(currentIndex).catch(err => null)

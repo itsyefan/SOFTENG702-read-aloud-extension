@@ -13,6 +13,7 @@ var messageHandlers = {
   resume: resume,
   getPlaybackState: getPlaybackState,
   forward: forward,
+  voice: voice,
   rewind: rewind,
   seek: seek,
   close: closePlayer,
@@ -144,6 +145,10 @@ function closeDoc() {
 function forward() {
   if (activeDoc) return activeDoc.forward();
   else return Promise.reject(new Error("Can't forward, not active"));
+}
+
+function voice() {
+  if (activeDoc) return activeDoc.voice();
 }
 
 function rewind() {
