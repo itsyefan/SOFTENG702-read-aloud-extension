@@ -206,7 +206,7 @@ function Doc(source, onEnd) {
     }
 
     else if (vocalInput.toLowerCase().includes("help")) {
-      activeSpeech.play();
+      //TODO IMPLEMENT TUTORIAL
     }
 
 
