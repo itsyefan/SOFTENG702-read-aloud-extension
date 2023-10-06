@@ -183,6 +183,33 @@ function Doc(source, onEnd) {
     recognition.onresult = (result) => {
       let vocalInput = result.results[0][0].transcript;
       console.log(vocalInput);
+
+
+    if (vocalInput.toLowerCase().includes("play")) {
+      play();
+    }
+
+    else if (vocalInput.toLowerCase().includes("pause")) {
+      pause();
+    }
+
+    else if (vocalInput.toLowerCase().includes("forward")) {
+      forward();
+    }
+
+    else if (vocalInput.toLowerCase().includes("rewind")) {
+      rewind();
+    }
+
+    else if (vocalInput.toLowerCase().includes("stop")) {
+      stop();
+    }
+
+    else if (vocalInput.toLowerCase().includes("help")) {
+      activeSpeech.play();
+    }
+
+
     }
 
     recognition.start()
@@ -214,6 +241,7 @@ function Doc(source, onEnd) {
     }
     if (activeSpeech) return;
     activeSpeech = await getSpeech(texts);
+    console.log(activeSpeech)
     activeSpeech.onEnd = function(err) {
       if (err) {
         if (onEnd) onEnd(err);
