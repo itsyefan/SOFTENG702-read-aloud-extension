@@ -206,7 +206,7 @@ function Doc(source, onEnd) {
     }
 
     else if (vocalInput.toLowerCase().includes("help")) {
-      //TODO IMPLEMENT TUTORIAL
+      help();
     }
 
 
@@ -413,5 +413,9 @@ function Doc(source, onEnd) {
   function seek(n) {
     if (activeSpeech) return activeSpeech.seek(n);
     else return Promise.reject(new Error("Can't seek, not active"));
+  }
+
+  function help() {
+    window.open('../website/index.html');
   }
 }

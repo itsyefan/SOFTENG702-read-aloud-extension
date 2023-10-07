@@ -35,22 +35,13 @@
     "tts",
     "ttsEngine"
   ],
-  "optional_permissions": [
-    "webRequest",
-    "webNavigation"
-  ],
-  "host_permissions": [
-    "https://translate.google.com/"
-  ],
-  "optional_host_permissions": [
-    "http://*/",
-    "https://*/",
-    "file://*/*"
-  ],
+  "optional_permissions": ["webRequest", "webNavigation"],
+  "host_permissions": ["https://translate.google.com/"],
+  "optional_host_permissions": ["http://*/", "https://*/", "file://*/*"],
   "web_accessible_resources": [
     {
-      "resources": [ "player.html", "sound/silence.mp3" ],
-      "matches": [ "<all_urls>" ],
+      "resources": ["player.html", "sound/silence.mp3"],
+      "matches": ["<all_urls>"],
       "use_dynamic_url": true
     }
   ],
@@ -63,22 +54,22 @@
   },
   "commands": {
     "play": {
-      "suggested_key": {"default": "Alt+P"},
+      "suggested_key": { "default": "Alt+P" },
       "description": "play/pause"
     },
     "stop": {
-      "suggested_key": {"default": "Alt+O"},
+      "suggested_key": { "default": "Alt+O" },
       "description": "stop"
     },
     "forward": {
-      "suggested_key": {"default": "Alt+Period"},
+      "suggested_key": { "default": "Alt+Period" },
       "description": "forward"
     },
     "rewind": {
-      "suggested_key": {"default": "Alt+Comma"},
+      "suggested_key": { "default": "Alt+Comma" },
       "description": "rewind"
     },
-    "voice" : {
+    "voice": {
       "description": "activate voice"
     }
   }
