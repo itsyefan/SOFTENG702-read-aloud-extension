@@ -146,6 +146,7 @@ function Doc(source, onEnd) {
   this.forward = forward;
   this.rewind = rewind;
   this.seek = seek;
+  this.voice = voice;
 
   //method close
   function close() {
@@ -164,6 +165,55 @@ function Doc(source, onEnd) {
     currentIndex = await source.getCurrentIndex()
     return readCurrent()
   }
+
+  async function voice() {
+    let SpeechRecognition =  window.SpeechRecognition || window.webkitSpeechRecognition;
+ 
+    let recognition = new SpeechRecognition();
+
+    recognition.onstart = () => {
+      console.log("starting listening, speak in microphone");
+    }     
+
+    recognition.onspeechend = () => {
+      console.log("stopped listening");
+      recognition.stop();
+    }
+
+    recognition.onresult = (result) => {
+      let vocalInput = result.results[0][0].transcript;
+      console.log(vocalInput);
+
+
+    if (vocalInput.toLowerCase().includes("play")) {
+      play();
+    }
+
+    else if (vocalInput.toLowerCase().includes("pause")) {
+      pause();
+    }
+
+    else if (vocalInput.toLowerCase().includes("forward")) {
+      forward();
+    }
+
+    else if (vocalInput.toLowerCase().includes("rewind")) {
+      rewind();
+    }
+
+    else if (vocalInput.toLowerCase().includes("stop")) {
+      stop();
+    }
+
+    else if (vocalInput.toLowerCase().includes("help")) {
+      help();
+    }
+
+
+    }
+
+    recognition.start()
+    }
 
   async function readCurrent(rewinded) {
     const texts = await source.getTexts(currentIndex).catch(err => null)
@@ -191,6 +241,7 @@ function Doc(source, onEnd) {
     }
     if (activeSpeech) return;
     activeSpeech = await getSpeech(texts);
+    console.log(activeSpeech)
     activeSpeech.onEnd = function(err) {
       if (err) {
         if (onEnd) onEnd(err);
@@ -362,5 +413,9 @@ function Doc(source, onEnd) {
   function seek(n) {
     if (activeSpeech) return activeSpeech.seek(n);
     else return Promise.reject(new Error("Can't seek, not active"));
+  }
+
+  function help() {
+    window.open('../website/index.html');
   }
 }

@@ -101,6 +101,9 @@ brapi.commands.onCommand.addListener(function(command) {
     rewind()
       .catch(handleHeadlessError)
   }
+  else if (command == 'voice') {
+    voice();
+  }
 })
 
 
@@ -215,6 +218,10 @@ async function getPlaybackState() {
 
 function forward() {
   return sendToPlayer({method: "forward"})
+}
+
+function voice() {
+  return sendToPlayer({method: "voice"})
 }
 
 function rewind() {
@@ -399,7 +406,7 @@ async function createPlayerTab() {
 }
 
 
-
+// 
 async function sendToPlayer(message) {
   message.dest = "player"
   const result = await brapi.runtime.sendMessage(message)

@@ -21,6 +21,7 @@ $(function() {
   $("#btnSettings").click(onSettings);
   $("#btnForward").click(onForward);
   $("#btnRewind").click(onRewind);
+  $("#btnHelp").click(onHelp);
   $("#decrease-font-size").click(changeFontSize.bind(null, -1));
   $("#increase-font-size").click(changeFontSize.bind(null, +1));
   $("#decrease-window-size").click(changeWindowSize.bind(null, -1));
@@ -212,6 +213,10 @@ function onRewind() {
 function onSeek(n) {
   bgPageInvoke("seek", [n])
     .catch(handleError)
+}
+
+function onHelp() {
+  window.open('../website/index.html');
 }
 
 function changeFontSize(delta) {
