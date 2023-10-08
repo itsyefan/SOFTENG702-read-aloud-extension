@@ -216,7 +216,7 @@ function onSeek(n) {
 }
 
 function onHelp() {
-  window.open('../website/index.html');
+  window.open('https://softeng-702-read-aloud-extension-q49a.vercel.app/');
 }
 
 function changeFontSize(delta) {
