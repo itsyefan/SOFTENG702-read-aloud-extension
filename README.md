@@ -28,7 +28,15 @@ After the extension is successfully loaded into the desired browser, it will be 
 This extension will work on proper http web pages, such as google search results, Wikipedia, Youtube and so on. Pages like a new tab, or settings within the browser will be invalid. 
 Once on a valid web page, press ```alt + p``` to activate the extension and start reading the web page.
 
-To allow the extension to hear your voice command, press ```alt + v```. The extension will stop listening after each command, therefore you will have to press ```alt + v``` everytime you would like to use a voice command.
+To allow the extension to hear your voice command, press ```alt + v```. The browser may not have allowed for microphone access, so please navigate to the Read Aloud tab on the left of your tab list 
+
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/69c227eb-b074-4e2d-aa9b-8c3df172ce2d)
+
+If you see a little red x next to a microphone at the right side of the URL bar, please click on that to toggle access for your microphone. After enabling access, the voice commands will now work.
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/a037b274-17b3-4be6-8029-acdd600787ac)
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/637818b2-4aac-420b-a828-d2ad2331da77)
+
+The extension will stop listening after each command, therefore you will have to press ```alt + v``` everytime you would like to use a voice command.
 
 Current valid voice commands are:
 - play
