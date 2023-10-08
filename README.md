@@ -1,133 +1,58 @@
+# Team 19 - Improving Open Accessibility Tools
+We have taken an existing browser extension called ReadAloud and added a few functions to increase its accessibility to more user groups. While this extension is already targeting users that may have dyslexia, reading impairments or just users that don't want to read, we want to expand upon this and add another option for users that don't want to interact with the extension using their mouse, or may be less tech savvy. We have added a system which allows the user to speak into their system to control the extension compared to pressing the buttons on the screen. We have also added a tutorial page which will further introduce the extension and teach any users that may be confused on how to use the extension.
 
-<div align="center">
-	<img src="img/icon.png" width="128" height="128">
-	<br>
-	<img src="docs/images/logo-text-trans.png" width="391" height="66">
-	<br>
-	A <b>Text to Speech Voice Reader</b> extension for your browser!
-</div>
-
-<div align="center">
-	<a href="https://chrome.google.com/webstore/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp">Chrome Web Store</a> | <a href="https://addons.mozilla.org/en-US/firefox/addon/read-aloud/">Firefox Addon</a> | <a href="https://blog.readaloud.app/">Blog</a> | <a href="https://readaloud.app/">Website</a> 
-</div>
-
-<br>
-
-<div align="center">
-    <br> github stats:
-    <img src="https://badgen.net/github/stars/ken107/read-aloud" >
-    <img src="https://badgen.net/github/open-issues/ken107/read-aloud" >
-    <img src="https://badgen.net/github/open-prs/ken107/read-aloud" >
-    <img src="https://badgen.net/github/tag/ken107/read-aloud" >
-    <img src="https://badgen.net/github/license/ken107/read-aloud/" >
-    <br> chrome web store stats:
-    <img src="https://badgen.net/chrome-web-store/users/hdhinadidafjejdhmfkjgnolgimiaplp" >
-    <img src="https://badgen.net/chrome-web-store/rating/hdhinadidafjejdhmfkjgnolgimiaplp" >
-    <img src="https://badgen.net/chrome-web-store/rating-count/hdhinadidafjejdhmfkjgnolgimiaplp" >
-    <img src="https://badgen.net/chrome-web-store/v/hdhinadidafjejdhmfkjgnolgimiaplp" >
-    <br> firefox addon stats:
-    <img src="https://badgen.net/amo/users/read-aloud" >
-    <img src="https://badgen.net/amo/rating/read-aloud" >
-    <img src="https://badgen.net/amo/reviews/read-aloud" >
-    <img src="https://badgen.net/amo/v/read-aloud" >
-</div>
-
-<br>
-
-<div align="center">
-	<sub>A little browser extension built with ❤︎ by <a href="https://github.com/ken107">Hai Phan</a> and <a href="https://github.com/ken107/read-aloud/graphs/contributors">contributors</a> </sub>
-</div>
-
-<hr />
-
-## Reviews
->First impressions are super. Natural flowing voice and very helpful for multitasking and also giving my eyes a rest. 
-
-*Giuseppe*
-
-> Thank you so much for this extension. I absolutely swear by it whenever I need to read any large chunk of text. The combination of hearing it in a clear voice (...)  Its fantastic, thank you so much.
-
-*Abi*
-
-> LOVE this extension. I remember better when i hear a story vs reading
-
-*David*
-
-> This is a phenomenal extension. Better than anything else I tryed so far. Simple, easy, customizable (...) I would recommend this whole heartedly to anyone who has dyslexia like me, or any other reasons for not beeing able to read comfortably at all times.
-
-*Merlin*
+## Instructions on setting up the extension in Chrome / Microsoft Edge
+### [Chrome](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/) *images taken directly from this link
+1. Navigate to the Extensions page by either inputting chrome://extensions in the URL of a new tab
+    - Alternatively get there by clicking on the Extensions menu puzzle button and select Manage Extensions at the bottom of the menu.
+    - Another alternative is to click More Tools and then select Extensions
+2. Enable developer mode by the toggle switch next to Developer Mode
+3. Click the Load unpacked button and select the folder in which the extension has been cloned to
+	
+ ![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/148ce7e5-3494-4ac2-9a4e-b1551c259b23)
 
 
-## Overview
-Read Aloud is a Chrome and Firefox extension that uses text-to-speech technology to convert webpage text to audio.&nbsp; It works on a variety of websites, including news sites, blogs, fan fiction, publications, textbooks, school and class websites, online universities and course materials.
+### [Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading) *images taken directly from this link
+1. Navigate to the Extensions page by selecting Settings (the ... on the top right of the screen) and then clicking on Extensions
+    - Alternatively, navigate to a new tab and input edge://extensions in the URL
+2. Enable developer mode by the toggle switch next to Developer Mode on the bottom left of the screen
+3. Click the Load unpacked button and select the folder in which the extension has been cloned to
 
-Read Aloud is aimed at users who prefer to listen to content instead of reading, people with dyslexia or other learning disabilities, children learning to read, or simply to provide users with alternative way to consume web content.
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/af9c8c2e-78de-42c0-9635-660b2792698d)
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/6876a998-7fb7-4f4e-a47b-07d9d37686b3)
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/31440a98-0e24-4ca6-b16e-8bacedcc9d8a)
 
-Read Aloud allows you to select from a variety of text-to-speech voices, including those provided natively by the browser, as well as by text-to-speech cloud service providers such as Google Wavenet, Amazon Polly, IBM Watson, and Microsoft.&nbsp; Some of the cloud-based voices may require additional in-app purchase to enable.
+After the extension is successfully loaded into the desired browser, it will be accessible from the extensions tab. From there the extension can be used normally.
 
-## Basic Usage
+## Extension Instructions
+This extension will work on proper http web pages, such as google search results, Wikipedia, Youtube and so on. Pages like a new tab, or settings within the browser will be invalid. 
+Once on a valid web page, press ```alt + p``` to activate the extension and start reading the web page.
 
-### Extension Button
-<img src="docs/images/demo-extension-button.gif">
+To allow the extension to hear your voice command, press ```alt + v```. The browser may not have allowed for microphone access, so please navigate to the Read Aloud tab on the left of your tab list 
 
-### Right Click Menu
-<img src="docs/images/demo-right-click.gif">
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/69c227eb-b074-4e2d-aa9b-8c3df172ce2d)
 
+If you see a little red x next to a microphone at the right side of the URL bar, please click on that to toggle access for your microphone. After enabling access, the voice commands will now work.
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/a037b274-17b3-4be6-8029-acdd600787ac)
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/637818b2-4aac-420b-a828-d2ad2331da77)
 
-## Advanced Usage
+The extension will stop listening after each command, therefore you will have to press ```alt + v``` everytime you would like to use a voice command.
 
-### Shortcuts
+Current valid voice commands are:
+- play
+- pause
+- stop
+- rewind
+- forward
+- [help](https://softeng-702-read-aloud-extension-q49a.vercel.app) 
 
-```yaml
-ALT/Option + P           : Play/Pause
-ALT/Option + O           : Stop
-ALT/Option + Comma       : Rewind
-ALT/Option + Period      : Forward
-```
+Due to browser limitations, only 4 keyboard default commands are able to be set. The original extension had keyboard commands for play/pause, stop, rewind and forward. We have removed the default command for rewind and changed it to a default command for voice commands. If you would like to change the extension shortcut commands to your liking please go to ```chrome://extensions/shortcuts``` or ```edge://extensions/shortcuts``` depending on your browser choice.
 
-### Customization
+## Experiment Storyboard and Preparations
+![image](https://github.com/itsyefan/SOFTENG702-read-aloud-extension/assets/79778710/5f4f5b15-38ec-45e9-bd7f-8f602e317ff3)
 
-You can change the voice, reading speed, pitch, or enable text highlighting:
+During the introduction of our experiment for the participant, a pre-recorded video with a small demo and instructions based on our [script](https://docs.google.com/document/d/1XPz83qeahT5E2BYfBPixCSbKpcWbsDBuqz34G8cD9W8/edit?usp=sharing) will be played to ensure all participants receive the same information.
 
-1. Click the Read Aloud icon on the [Extensions menu](https://i.imgur.com/KTqFZ3Q.png).
-2. Stop any text that may be playing.
-3. Click on the Gear icon in the Read Aloud context menu. (It may take a second or two for settings to appear)
-
-
-### Using Premium Voices
-[Using Premium Voices (Google Wavenet & Amazon Polly)](docs/usage/premium-voices.md)
-
-
-## Installation
-
-### Chrome and Chromium-based browsers
-You can get the latest available Read Aloud Extension version from the [Chrome Web Store](https://chrome.google.com/webstore/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp).
-
-### Firefox
-You can get the latest version of Read Aloud Extension from the [Mozilla Add-ons website](https://addons.mozilla.org/en-US/firefox/addon/read-aloud/).
-
-#### Firefox install from source
-
-1. Create a build directory with `mkdir build`
-2. Run `npm run-script package`
-3. Extract the resulting zip file. You should see a `manifest.json` which will be used later.
-4. In Firefox, first make sure there isn't an existing read-aloud add-on already installed
-5. type `about:debugging` in the Address bar and enter.
-6. Click on "This Firefox" then click "Load Unpackaged Extension"
-7. Select the `manifest.json` file produced earlier.
-
-## Contribute
-
-- Star this GitHub repo :star:
-- Post about it on your social media (Twitter / Blogs / Facebook / Instagram etc).
-- Leave a positive review on the [Chrome Web Store](https://chrome.google.com/webstore/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp) or [Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/read-aloud/) pages.
-- Create pull requests, submit bugs, suggest new features or documentation updates 🛠 
-	- To do so, go to [this page](https://github.com/ken107/read-aloud/issues) and click the *New issue* button.
+This is our questionnaire based on the above storyboard: [Google Form Questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSf8wenGA_b4MQ2ju9mN3Zl2NCuos-E2jDCURgmKK4V0yJHE7A/viewform?usp=sharing)
 
 
-## Credits
-
-### Images
-
- - [Streamline Labs](https://lab.streamlineicons.com/)
- - [Freepik](https://www.freepik.com/free-vector/colorful-memphis-design-background-vector_3893585.htm)
