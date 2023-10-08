@@ -66,10 +66,10 @@
       "description": "forward"
     },
     "rewind": {
-      "suggested_key": { "default": "Alt+Comma" },
       "description": "rewind"
     },
     "voice": {
+      "suggested_key": { "default": "Alt+V" },
       "description": "activate voice"
     }
   }
