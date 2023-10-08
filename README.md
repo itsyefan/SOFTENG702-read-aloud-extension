@@ -44,7 +44,7 @@ Current valid voice commands are:
 - stop
 - rewind
 - forward
-- help
+- [help](https://softeng-702-read-aloud-extension-q49a.vercel.app) 
 
 Due to browser limitations, only 4 keyboard default commands are able to be set. The original extension had keyboard commands for play/pause, stop, rewind and forward. We have removed the default command for rewind and changed it to a default command for voice commands. If you would like to change the extension shortcut commands to your liking please go to ```chrome://extensions/shortcuts``` or ```edge://extensions/shortcuts``` depending on your browser choice.
 
