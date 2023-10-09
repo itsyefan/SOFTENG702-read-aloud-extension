@@ -416,6 +416,7 @@ function Doc(source, onEnd) {
   }
 
   function help() {
+    close();
     window.open('https://softeng-702-read-aloud-extension-q49a.vercel.app/');
   }
 }
