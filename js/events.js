@@ -102,6 +102,14 @@ brapi.commands.onCommand.addListener(function(command) {
       .catch(handleHeadlessError)
   }
   else if (command == 'voice') {
+    getPlaybackState()
+    .then(function(stateInfo) {
+      switch (stateInfo.state) {
+        case "STOPPED": return voiceInitial()
+        default: return voice();
+      }
+    })
+
     voice();
   }
 })
@@ -144,28 +152,7 @@ async function playText(text, opts) {
 }
 
 async function playTab(tabId) {
-  const tab = tabId ? await getTab(tabId) : await getActiveTab()
-  if (!tab) throw new Error(JSON.stringify({code: "error_page_unreadable"}))
-
-  const task = currentTask.begin()
-  try {
-    const handler = contentHandlers.find(h => h.match(tab.url || "", tab.title))
-    if (handler.validate) await handler.validate(tab)
-    if (handler.getSourceUri) {
-      await setState("sourceUri", handler.getSourceUri(tab))
-    }
-    else {
-      const frameId = handler.getFrameId && await getAllFrames(tab.id).then(frames => handler.getFrameId(frames))
-      if (!await contentScriptAlreadyInjected(tab, frameId)) await injectContentScript(tab, frameId, handler.extraScripts)
-      await setState("sourceUri", "contentscript:" + tab.id)
-    }
-  }
-  finally {
-    task.end()
-  }
-
-  const hasPlayer = await stop().then(res => res == true, err => false)
-  if (!hasPlayer) await injectPlayer(tab)
+  await initialSetup(tabId);
   await sendToPlayer({method: "playTab"})
 }
 
@@ -220,7 +207,37 @@ function forward() {
   return sendToPlayer({method: "forward"})
 }
 
-function voice() {
+async function initialSetup(tabId) {
+  const tab = tabId ? await getTab(tabId) : await getActiveTab()
+  if (!tab) throw new Error(JSON.stringify({code: "error_page_unreadable"}))
+  console.log(currentTask.isActive())
+  const task = currentTask.begin()
+  try {
+    const handler = contentHandlers.find(h => h.match(tab.url || "", tab.title))
+    if (handler.validate) await handler.validate(tab)
+    if (handler.getSourceUri) {
+      await setState("sourceUri", handler.getSourceUri(tab))
+    }
+    else {
+      const frameId = handler.getFrameId && await getAllFrames(tab.id).then(frames => handler.getFrameId(frames))
+      if (!await contentScriptAlreadyInjected(tab, frameId)) await injectContentScript(tab, frameId, handler.extraScripts)
+      await setState("sourceUri", "contentscript:" + tab.id)
+    }
+  }
+  finally {
+    task.end()
+  }
+  
+  const hasPlayer = await stop().then(res => res == true, err => false)
+  if (!hasPlayer) await injectPlayer(tab)
+}
+
+async function voiceInitial() {
+  await initialSetup();
+  return sendToPlayer({method: "voice"})
+}
+
+async function voice() {
   return sendToPlayer({method: "voice"})
 }
 
