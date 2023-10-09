@@ -148,6 +148,12 @@ function forward() {
 }
 
 function voice() {
+  playbackError = null
+  if (!activeDoc) {
+    openDoc(new TabSource(), function(err) {
+      if (err) playbackError = err
+    })
+  }
   if (activeDoc) return activeDoc.voice();
 }
 
